@@ -16,6 +16,6 @@ class Swiftweb < Formula
     libexec.install ".build/release/swiftweb"
     libexec.install ".build/release/SwiftWeb_SwiftWebGenerator.bundle"
 
-    (bin/"swiftweb").install_symlink libexec/"swiftweb"
+    bin.install_symlink libexec/"swiftweb"
   end
 end
