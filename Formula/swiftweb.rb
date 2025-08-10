@@ -13,9 +13,7 @@ class Swiftweb < Formula
   def install
     system "swift", "build", "--configuration", "release", "--disable-sandbox"
 
-    libexec.install ".build/release/swiftweb"
-    libexec.install ".build/release/SwiftWeb_SwiftWebGenerator.bundle"
-
-    bin.install_symlink libexec/"swiftweb"
+    bin.install ".build/release/swiftweb"
+    bin.install ".build/release/SwiftWeb_SwiftWebGenerator.bundle"
   end
 end
