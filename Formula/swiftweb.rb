@@ -3,18 +3,19 @@ class Swiftweb < Formula
 
   homepage "https://github.com/nikodittmar/SwiftWeb"
 
-  url "https://github.com/nikodittmar/SwiftWeb/archive/refs/tags/v0.5.1.tar.gz"
-  version "0.5.1"
+  url "https://github.com/nikodittmar/SwiftWeb/archive/refs/tags/v0.5.2.tar.gz"
+  version "0.5.2"
 
-  sha256 "f1d7b07ac8ea1364a25953e845b3f96eada0368d6a7a81315e51fbd63dc61e65"
+  sha256 "1c9481842d31936cd339a60c517c25c832472051d8519e0cf895ba405c20c674"
 
   depends_on :xcode => ["15.0", :build]
 
   def install
     system "swift", "build", "--configuration", "release", "--disable-sandbox"
 
-    bin.install ".build/release/swiftweb"
+    libexec.install ".build/release/swiftweb"
+    libexec.install ".build/release/SwiftWeb_SwiftWebGenerator.bundle"
 
-    bin.install ".build/release/SwiftWeb_SwiftWebGenerator.bundle"
+    (bin/"swiftweb").install_symlink libexec/"swiftweb"
   end
 end
